@@ -18,6 +18,13 @@ public class Main {
         Integer i = context.getBean(Integer.class);
         System.out.println(i);
 
+        System.out.println("*************");
+
+        //Using the stereotype class
+        Eagle e = context.getBean(Eagle.class);
+        System.out.println(e);
+        System.out.println(e.getName());
+
 
 
     }
