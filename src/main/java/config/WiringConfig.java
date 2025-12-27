@@ -17,6 +17,8 @@ public class WiringConfig {
         return d;
     }
 
+
+
     @Bean
     Person person(Cat cat){
         Person p = new Person();
@@ -32,4 +34,5 @@ public class WiringConfig {
         c.setName("Tom");
         return c;
     }
+
 }

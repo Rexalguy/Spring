@@ -14,5 +14,6 @@ public class Main {
         System.out.println("Employee name: " + emp.getName());
         System.out.println("Employee : " +emp.getManger());
         System.out.println("Assistant manager: " + emp.getAst_manger());
+//        System.out.println("Job: " + emp.getJob());
     }
 }
