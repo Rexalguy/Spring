@@ -5,6 +5,10 @@
     <file url="file://$PROJECT_DIR$/Contracts/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ContractsWithSpring/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ContractsWithSpring/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Scopes/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Scopes/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SingletonAndStereotype/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SingletonAndStereotype/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>

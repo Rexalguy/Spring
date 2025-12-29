@@ -11,6 +11,8 @@
     <modules>
         <module>Contracts</module>
         <module>ContractsWithSpring</module>
+        <module>Scopes</module>
+        <module>SingletonAndStereotype</module>
     </modules>
 
     <properties>
