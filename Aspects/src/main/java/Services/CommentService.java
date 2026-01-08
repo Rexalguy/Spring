@@ -1,5 +1,6 @@
 package Services;
 
+import Aspect.ToLog;
 import model.Comment;
 import org.springframework.stereotype.Service;
 
@@ -17,4 +18,14 @@ public class CommentService {
         return "SUCCESS";
     }
 
+
+    @ToLog
+    public String deleteComment(Comment comment){
+        logger.info("Deleting comment: " + comment.getText());
+        return null;
+    }
+
+    public void editComment(Comment comment){
+        logger.info("Editing comment: " + comment.getText());
+    }
 }

@@ -15,8 +15,8 @@ public class LoggingAspect {
     Logger logger = Logger.getLogger(LoggingAspect.class.getName());
 
     //We shall use AspectJ. Quite unfamiliar syntax but strong
-    @Around("execution(* Services.*.*(..))")
-    public  Object log(ProceedingJoinPoint joinPoint) throws Throwable{
+    @Around("@annotation(ToLog)")
+    public  Object log (ProceedingJoinPoint joinPoint) throws Throwable{
         //We first get the method name
         String methodName = joinPoint.getSignature().getName();
         //We get the method arguments

@@ -21,7 +21,7 @@ public class Main {
         comment.setText("Demo comment");
         comment.setAuthor("Aburek");
 
-        String value = service.publishComment(comment);
+        String value = service.deleteComment(comment);
 
 
         logger.info(value);
