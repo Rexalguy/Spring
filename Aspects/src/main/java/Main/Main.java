@@ -23,7 +23,12 @@ public class Main {
 
         String value = service.deleteComment(comment);
 
-
         logger.info(value);
+
+        Comment comment1 = new Comment();
+        comment1.setText("Secure comment");
+        String statement = service.editComment(comment1);
+        logger.info(statement);
+
     }
 }

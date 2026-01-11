@@ -1,5 +1,6 @@
 package Services;
 
+import Aspect.Log;
 import Aspect.ToLog;
 import model.Comment;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,9 @@ public class CommentService {
         return null;
     }
 
-    public void editComment(Comment comment){
+    @Log
+    public String editComment(Comment comment){
         logger.info("Editing comment: " + comment.getText());
+        return "EDITED";
     }
 }
