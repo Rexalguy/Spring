@@ -1,5 +1,6 @@
 package com.example.login.Controllers;
 
+import com.example.login.Services.LoggedUserManagement;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,8 +13,12 @@ public class MainController {
     //Injection of the Login processor
     private final LoginProcessor loginProcessor;
 
-    public MainController(LoginProcessor loginProcessor){
+    //Injection of logged user management
+    private final LoggedUserManagement loggedUserManagement;
+
+    public MainController(LoginProcessor loginProcessor, LoggedUserManagement loggedUserManagement){
         this.loginProcessor = loginProcessor;
+        this.loggedUserManagement = loggedUserManagement;
     }
 
 
@@ -35,12 +40,33 @@ public class MainController {
         boolean isLogged = loginProcessor.login();
 
         if (isLogged){
-            model.addAttribute("message", "You are logged in");
+            return "redirect:/main";
         }
         else{
             model.addAttribute("message","Login failed");
         }
 
         return "login.html";
+    }
+
+    @GetMapping("/main")
+    public String home(
+            @RequestParam(required = false) String logout,
+            Model model
+    ){
+        //If the logout parameter has a value, we erase the username
+        if (logout != null){
+            loggedUserManagement.setUsername(null);
+        }
+
+        String username = loggedUserManagement.getUsername();
+
+        if(username == null){
+            return "redirect:/";
+        }
+        else{
+            model.addAttribute("username",username);
+            return "main.html";
+        }
     }
 }
