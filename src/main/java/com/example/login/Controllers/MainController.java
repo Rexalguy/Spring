@@ -1,6 +1,7 @@
 package com.example.login.Controllers;
 
 import com.example.login.Services.LoggedUserManagement;
+import com.example.login.Services.LoginCountService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,9 +17,13 @@ public class MainController {
     //Injection of logged user management
     private final LoggedUserManagement loggedUserManagement;
 
-    public MainController(LoginProcessor loginProcessor, LoggedUserManagement loggedUserManagement){
+    //Injection for the Login count
+    private LoginCountService loginCountService;
+
+    public MainController(LoginProcessor loginProcessor, LoggedUserManagement loggedUserManagement, LoginCountService loginCountService){
         this.loginProcessor = loginProcessor;
         this.loggedUserManagement = loggedUserManagement;
+        this.loginCountService = loginCountService;
     }
 
 
@@ -60,12 +65,14 @@ public class MainController {
         }
 
         String username = loggedUserManagement.getUsername();
+        int count = loginCountService.getCount();
 
         if(username == null){
             return "redirect:/";
         }
         else{
             model.addAttribute("username",username);
+            model.addAttribute("loginCount", count);
             return "main.html";
         }
     }
