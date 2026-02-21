@@ -45,6 +45,7 @@ public class MainController {
         boolean isLogged = loginProcessor.login();
 
         if (isLogged){
+            model.addAttribute("message", "You are now logged in");
             return "redirect:/main";
         }
         else{
